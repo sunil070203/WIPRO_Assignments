@@ -1,0 +1,122 @@
+<!-- <mat-card>
+  <h2>Feedback Form</h2>
+
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="feedbackForm.get('name')?.hasError('required')" >Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="feedbackForm.get('email')?.hasError('required')">Email is required</mat-error>
+      <mat-error *ngIf="feedbackForm.get('email')?.hasError('email')">Enter a valid email</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Subject</mat-label>
+      <input matInput formControlName="subject" maxlength="40" />
+      <mat-hint align="end">{{ feedbackForm.get('subject')?.value?.length || 0 }}/40</mat-hint>
+      <mat-error *ngIf="feedbackForm.get('subject')?.hasError('required')">Subject is required</mat-error>
+      <mat-error *ngIf="feedbackForm.get('subject')?.hasError('maxlength')">Max 40 characters</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Comments / Issue</mat-label>
+      <textarea matInput rows="4" formControlName="comments" maxlength="350"></textarea>
+      <mat-hint align="end">{{ feedbackForm.get('comments')?.value?.length || 0 }}/350</mat-hint>
+      <mat-error *ngIf="feedbackForm.get('comments')?.hasError('required')">Comment is required</mat-error>
+      <mat-error *ngIf="feedbackForm.get('comments')?.hasError('maxlength')">Max 350 characters</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="feedbackForm.invalid">
+      Submit
+    </button>
+  </form>
+
+  <div *ngIf="submitted" class="thank-you">
+    ✅
+     Thank you for your message, we will get back to you shortly!
+  </div>
+</mat-card> -->
+<mat-card>
+  <h2>Feedback Form</h2>
+
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+    <!-- Name -->
+    <!-- <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" [disabled]="submitted" />
+      <mat-error *ngIf="feedbackForm.get('name')?.hasError('required')">
+        Name is required
+      </mat-error>
+    </mat-form-field> -->
+
+    <mat-form-field appearance="outline" class="full-width">
+  <mat-label>Name</mat-label>
+  <input matInput type="text" formControlName="name" [disabled]="submitted" />
+  <mat-error *ngIf="feedbackForm.get('name')?.touched && feedbackForm.get('name')?.hasError('required')">
+    Name is required
+  </mat-error>
+</mat-form-field>
+
+
+    <!-- Email -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" [disabled]="submitted" />
+      <mat-error *ngIf="feedbackForm.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="feedbackForm.get('email')?.hasError('email')">
+        Enter a valid email
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Subject -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Subject</mat-label>
+      <input matInput formControlName="subject" maxlength="40" [disabled]="submitted" />
+      <mat-hint align="end">
+        {{ feedbackForm.get('subject')?.value?.length || 0 }}/40
+      </mat-hint>
+      <mat-error *ngIf="feedbackForm.get('subject')?.hasError('required')">
+        Subject is required
+      </mat-error>
+      <mat-error *ngIf="feedbackForm.get('subject')?.hasError('maxlength')">
+        Max 40 characters
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Comments -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Comments / Issue</mat-label>
+      <textarea
+        matInput
+        rows="4"
+        formControlName="comments"
+        maxlength="350"
+        [disabled]="submitted"
+      ></textarea>
+      <mat-hint align="end">
+        {{ feedbackForm.get('comments')?.value?.length || 0 }}/350
+      </mat-hint>
+      <mat-error *ngIf="feedbackForm.get('comments')?.hasError('required')">
+        Comment is required
+      </mat-error>
+      <mat-error *ngIf="feedbackForm.get('comments')?.hasError('maxlength')">
+        Max 350 characters
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Submit -->
+    <button style="background-color: black;"> Submit </button>
+  </form>
+
+  <!-- Thank you message -->
+  <div *ngIf="submitted" class="thank-you">
+    ✅ Thank you for your message, we will get back to you shortly!
+  </div>
+</mat-card>
