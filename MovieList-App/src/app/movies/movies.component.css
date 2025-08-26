@@ -1,0 +1,129 @@
+/* ================= Toolbar ================= */
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(90deg, #1c1c2b, #292947, #1c1c2b);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.spacer { flex: 1 1 auto; }
+.avg {
+  font-size: .95rem;
+  font-weight: 500;
+  color: #ffd700;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.7);
+}
+
+/* ================= Controls ================= */
+.controls {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  justify-content: center;
+}
+
+.controls mat-form-field {
+  min-width: 220px;
+}
+
+/* ================= Movie Grid ================= */
+.grid {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* ================= Movie Card ================= */
+.movie-card {
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: rgba(30, 30, 47, 0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.movie-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,.35), 0 0 12px rgba(255, 215, 0, 0.3);
+}
+
+/* Highlight for top-rated movies */
+/* .movie-card.top-rated {
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  position: relative;
+}
+.movie-card.top-rated::after {
+  content: "⭐ Top Rated";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ffd700;
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.8);
+} */
+
+/* ================= Card Content ================= */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.card-header .title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.card-header .genre {
+  opacity: .8;
+  font-size: .9rem;
+  color: #ccc;
+  font-style: italic;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+.rating mat-icon {
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  color: #ffd700;
+}
+.rating-num {
+  margin-left: 6px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.desc {
+  margin: 0;
+  opacity: .9;
+  font-size: 0.92rem;
+  line-height: 1.35rem;
+  color: #e0e0e0;
+}
